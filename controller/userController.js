@@ -4,7 +4,7 @@ const getAllUser = async (req, res) => {
     
     let result = await service.getAllUser();
     if (result.status) {
-        res.status(201).json(result.data).message(result.message)
+        res.status(201).json({data:result.data,message:result.messagea})
     }
     else {
         res.status(201).json(result).message("Data Fetch Sucess")
@@ -35,7 +35,7 @@ const updateUserById = async (req, res) => {
     let email = req.body.email;
     let result = await service.updateUserById(id,name,password,email);
     if (result.status) {
-        res.status(201).json(result.data).message("Updated sucessfully",result.message)
+        res.status(201).json({data:result.data,message:result.message})
     }
     else {
         res.status(201).json(result).message("Data update error")
@@ -47,7 +47,7 @@ const getUserById = async (req, res) => {
     let id = req.body.id;
     let result = await service.getUserById(id)
     if (result.status) {
-        res.status(201).json(result.data).message(result.message)
+        res.status(201).json({data:result.data,message:result.message})
     }
     else {
         res.status(201).json(result).message("Data Fetch Fail")
@@ -63,7 +63,7 @@ const createUser = async(req,res)=>{
     let result = await service.createUser(name,email,password)
     if(result.status)
     {
-         res.status(201).json(result.data).message(result.message)
+         res.status(201).json({data:result.data,message:result.message})
     
     }
     else{
